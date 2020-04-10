@@ -29,20 +29,20 @@ const NumberOfBeds = (beds, data) => beds.totalHospitalBeds - data.severeCasesBy
 //  the estimated number of severe positive cases that will require ICU care.
 const Calc = (cases, num) => cases.infectionsByRequestedTime * num;
 
-const nomalizeDays = (periodType, timeToElapse) => {
+const normalizePeriod = (periodType, timeToElapse) => {
   let time = periodType;
   time = periodType.toLowerCase();
   switch (time) {
     case 'days': return timeToElapse;
     case 'weeks': return timeToElapse * 7;
     case 'months': return timeToElapse * 30;
-    default: return 'none';
+    default: return 'Invalid timespan';
   }
 };
 
 const covid19ImpactEstimator = (data) => {
   const pop = data.region.avgDailyIncomePopulation;
-  const time = nomalizeDays(data.periodType, data.timeToElapse);
+  const time = normalizePeriod(data.periodType, data.timeToElapse);
   const outPutSevereImpact = output.servereImpact;
   const outPutImpact = output.impact;
 
@@ -64,14 +64,13 @@ const covid19ImpactEstimator = (data) => {
   outPutSevereImpact.casesForICUByRequestedTime = Calc(outPutSevereImpact, 0.05);
 
   // the estimated number of severe positive cases that will require ventilators.
-  outPutImpact.casesForVentilatorsByRequestedTime = Calc(outPutImpact, 0.02);
+  outPutImpact.casesForVentilatorsByRequestedTime = Math.round(Calc(outPutImpact, 0.02));
   outPutSevereImpact.casesForVentilatorsByRequestedTime = Calc(outPutSevereImpact, 0.02);
 
   // much money the economy is likely to lose over 30 days
   outPutImpact.dollarsInFlight = Math.round((Calc(outPutImpact, 0.65) * pop) / time);
-
   outPutSevereImpact.dollarsInFlight = Math.round((Calc(outPutSevereImpact, 0.65) * pop) / time);
   return output;
 };
-covid19ImpactEstimator(covidData);
+console.log(covid19ImpactEstimator(covidData));
 // export default covid19ImpactEstimator;
