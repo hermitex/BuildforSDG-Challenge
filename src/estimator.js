@@ -72,5 +72,5 @@ const covid19ImpactEstimator = (data) => {
   outPutSevereImpact.dollarsInFlight = Math.round((Calc(outPutSevereImpact, 0.65) * pop) / time);
   return output;
 };
-console.log(covid19ImpactEstimator(covidData));
+covid19ImpactEstimator(covidData);
 // export default covid19ImpactEstimator;
