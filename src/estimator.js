@@ -27,40 +27,50 @@ const severeVereCases = (data, num) => data.currentlyInfected * num;
 const NumberOfBeds = (beds, data) => beds.totalHospitalBeds - data.severeCasesByRequestedTime;
 
 //  the estimated number of severe positive cases that will require ICU care.
-const utilCalc = (cases, num) => cases.infectionsByRequestedTime * num;
-// const calculatePop = ()
+const Calc = (cases, num) => cases.infectionsByRequestedTime * num;
 
+const nomalizeDays = (periodType, timeToElapse) => {
+  let time = periodType;
+  time = periodType.toLowerCase();
+  switch (time) {
+    case 'days': return timeToElapse;
+    case 'weeks': return timeToElapse / 7;
+    case 'months': return timeToElapse / 30;
+    default: return 'none';
+  }
+};
 
 const covid19ImpactEstimator = (data) => {
   const pop = data.region.avgDailyIncomePopulation;
-  const time = data.timeToElapse;
+  const time = nomalizeDays(data.periodType, data.timeToElapse);
+  const outPutSevereImpact = output.servereImpact;
+  const outPutImpact = output.impact;
 
-
-  output.impact.currentlyInfected = impact(data, 10);
+  outPutImpact.currentlyInfected = impact(data, 10);
   output.servereImpact.currentlyInfected = impact(data, 50);
-  output.impact.infectionsByRequestedTime = severeVereCases(output.impact, 1024);
-  output.servereImpact.infectionsByRequestedTime = severeVereCases(output.servereImpact, 1024);
+  outPutImpact.infectionsByRequestedTime = severeVereCases(outPutImpact, 1024);
+  output.servereImpact.infectionsByRequestedTime = severeVereCases(outPutSevereImpact, 1024);
   // 15% This is the estimated number of severe positive cases
-  output.impact.severeCasesByRequestedTime = utilCalc(output.impact, 0.15);
-  output.servereImpact.severeCasesByRequestedTime = utilCalc(output.servereImpact, 0.15);
+  outPutImpact.severeCasesByRequestedTime = Calc(outPutImpact, 0.15);
+  outPutSevereImpact.severeCasesByRequestedTime = Calc(outPutSevereImpact, 0.15);
 
   // Number of beds available for severe covid-19 cases
-  output.impact.hospitalBedsByRequestedTime = NumberOfBeds(data, output.impact);
-  output.servereImpact.hospitalBedsByRequestedTime = NumberOfBeds(data, output.servereImpact);
+  outPutImpact.hospitalBedsByRequestedTime = NumberOfBeds(data, outPutImpact);
+  outPutSevereImpact.hospitalBedsByRequestedTime = NumberOfBeds(data, outPutSevereImpact);
 
 
   //  the estimated number of severe positive cases that will require ICU care.
-  output.impact.casesForICUByRequestedTime = utilCalc(output.impact, 0.05);
-  output.servereImpact.casesForICUByRequestedTime = utilCalc(output.servereImpact, 0.05);
+  outPutImpact.casesForICUByRequestedTime = Calc(outPutImpact, 0.05);
+  outPutSevereImpact.casesForICUByRequestedTime = Calc(outPutSevereImpact, 0.05);
 
   // the estimated number of severe positive cases that will require ventilators.
-  output.impact.casesForVentilatorsByRequestedTime = utilCalc(output.impact, 0.02);
-  output.servereImpact.casesForVentilatorsByRequestedTime = utilCalc(output.servereImpact, 0.02);
+  outPutImpact.casesForVentilatorsByRequestedTime = Calc(outPutImpact, 0.02);
+  outPutSevereImpact.casesForVentilatorsByRequestedTime = Calc(outPutSevereImpact, 0.02);
 
   // much money the economy is likely to lose over 30 days
-  output.impact.dollarsInFlight = utilCalc(output.impact, 0.65) * pop * time;
+  outPutImpact.dollarsInFlight = Math.round((Calc(outPutImpact, 0.65) * pop) / time);
 
-  output.servereImpact.dollarsInFlight = utilCalc(output.servereImpact, 0.65) * pop * time;
+  outPutSevereImpact.dollarsInFlight = Math.round((Calc(outPutSevereImpact, 0.65) * pop) / time);
   return output;
 };
 covid19ImpactEstimator(covidData);
