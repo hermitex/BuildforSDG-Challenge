@@ -34,8 +34,8 @@ const nomalizeDays = (periodType, timeToElapse) => {
   time = periodType.toLowerCase();
   switch (time) {
     case 'days': return timeToElapse;
-    case 'weeks': return timeToElapse / 7;
-    case 'months': return timeToElapse / 30;
+    case 'weeks': return timeToElapse * 7;
+    case 'months': return timeToElapse * 30;
     default: return 'none';
   }
 };
