@@ -45,6 +45,7 @@ const covid19ImpactEstimator = (data) => {
   const time = normalizePeriod(data.periodType, data.timeToElapse);
   const outPutSevereImpact = output.servereImpact;
   const outPutImpact = output.impact;
+  const income = data.region.avgDailyIncomeInUSD;
 
   outPutImpact.currentlyInfected = impact(data, 10);
   output.servereImpact.currentlyInfected = impact(data, 50);
@@ -68,8 +69,8 @@ const covid19ImpactEstimator = (data) => {
   outPutSevereImpact.casesForVentilatorsByRequestedTime = Calc(outPutSevereImpact, 0.02);
 
   // much money the economy is likely to lose over 30 days
-  outPutImpact.dollarsInFlight = Math.round((Calc(outPutImpact, 0.65) * pop) / time);
-  outPutSevereImpact.dollarsInFlight = Math.round((Calc(outPutSevereImpact, 0.65) * pop) / time);
+  outPutImpact.dollarsInFlight = Math.round((Calc(outPutImpact, pop) * income) / time);
+  outPutSevereImpact.dollarsInFlight = Math.round((Calc(outPutSevereImpact, pop) * income) / time);
   return output;
 };
 covid19ImpactEstimator(covidData);
