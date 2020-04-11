@@ -72,5 +72,5 @@ const covid19ImpactEstimator = (data) => {
   outPutSevereImpact.dollarsInFlight = Math.trunc((Calc(outPutSevereImpact, pop) * income) / time);
   return output;
 };
-console.log(covid19ImpactEstimator(covidData));
-// export default covid19ImpactEstimator;
+covid19ImpactEstimator(covidData);
+export default covid19ImpactEstimator;
