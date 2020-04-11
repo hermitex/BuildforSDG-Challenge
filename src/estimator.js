@@ -44,8 +44,8 @@ const covid19ImpactEstimator = (data) => {
 
   outPutImpact.currentlyInfected = impact(data, 10);
   output.severeImpact.currentlyInfected = impact(data, 50);
-  outPutImpact.infectionsByRequestedTime = severeCases(outPutImpact, 1024);
-  output.severeImpact.infectionsByRequestedTime = severeCases(outPutSevereImpact, 1024);
+  outPutImpact.infectionsByRequestedTime = severeCases(outPutImpact, time / 3);
+  output.severeImpact.infectionsByRequestedTime = severeCases(outPutSevereImpact, time / 3);
   // 15% This is the estimated number of severe positive cases
   outPutImpact.severeCasesByRequestedTime = Calc(outPutImpact, 0.15);
   outPutSevereImpact.severeCasesByRequestedTime = Calc(outPutSevereImpact, 0.15);
@@ -61,8 +61,8 @@ const covid19ImpactEstimator = (data) => {
   // much money the economy is likely to lose over 30 days
   outPutImpact.dollarsInFlight = Math.trunc((Calc(outPutImpact, pop) * income) / time);
   outPutSevereImpact.dollarsInFlight = Math.trunc((Calc(outPutSevereImpact, pop) * income) / time);
-  // console.log(output)
+  console.log(output);
   return output;
 };
 covid19ImpactEstimator(covidData);
-export default covid19ImpactEstimator;
+// export default covid19ImpactEstimator;
