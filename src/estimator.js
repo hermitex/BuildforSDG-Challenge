@@ -31,8 +31,9 @@ const normalizePeriod = (periodType, timeToElapse) => {
 };
 
 const covid19ImpactEstimator = (data) => {
+  const input = data;
   const output = {
-    data: {},
+    data: input,
     estimate: {
       impact: {},
       servereImpact: {}
@@ -71,5 +72,5 @@ const covid19ImpactEstimator = (data) => {
   outPutSevereImpact.dollarsInFlight = Math.trunc((Calc(outPutSevereImpact, pop) * income) / time);
   return output;
 };
-covid19ImpactEstimator(covidData);
-export default covid19ImpactEstimator;
+console.log(covid19ImpactEstimator(covidData));
+// export default covid19ImpactEstimator;
