@@ -14,19 +14,9 @@ const covidData = {
   totalHospitalBeds: 1380614
 };
 
-const output = {
-  data: {},
-  impact: {},
-  servereImpact: {}
-};
-
 const impact = (data, num) => data.reportedCases * num;
 const severeVereCases = (data, num) => data.currentlyInfected * num;
-
-// Number of beds available for severe covid-19 cases
 const NumberOfBeds = (beds, data) => beds.totalHospitalBeds - data.severeCasesByRequestedTime;
-
-//  the estimated number of severe positive cases that will require ICU care.
 const Calc = (cases, num) => cases.infectionsByRequestedTime * num;
 
 const normalizePeriod = (periodType, timeToElapse) => {
@@ -41,6 +31,12 @@ const normalizePeriod = (periodType, timeToElapse) => {
 };
 
 const covid19ImpactEstimator = (data) => {
+  const output = {
+    data: {},
+    impact: {},
+    servereImpact: {}
+  };
+
   const pop = data.region.avgDailyIncomePopulation;
   const time = normalizePeriod(data.periodType, data.timeToElapse);
   const outPutSevereImpact = output.servereImpact;
@@ -74,4 +70,4 @@ const covid19ImpactEstimator = (data) => {
   return output;
 };
 covid19ImpactEstimator(covidData);
-// export default covid19ImpactEstimator;
+export default covid19ImpactEstimator;
