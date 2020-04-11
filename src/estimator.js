@@ -33,19 +33,19 @@ const covid19ImpactEstimator = (data) => {
   const output = {
     data,
     impact: {},
-    servereImpact: {}
+    severeImpact: {}
   };
 
   const pop = data.region.avgDailyIncomePopulation;
   const time = normalizePeriod(data.periodType, data.timeToElapse);
-  const outPutSevereImpact = output.servereImpact;
+  const outPutSevereImpact = output.severeImpact;
   const outPutImpact = output.impact;
   const income = data.region.avgDailyIncomeInUSD;
 
   outPutImpact.currentlyInfected = impact(data, 10);
-  output.servereImpact.currentlyInfected = impact(data, 50);
+  output.severeImpact.currentlyInfected = impact(data, 50);
   outPutImpact.infectionsByRequestedTime = severeCases(outPutImpact, 1024);
-  output.servereImpact.infectionsByRequestedTime = severeCases(outPutSevereImpact, 1024);
+  output.severeImpact.infectionsByRequestedTime = severeCases(outPutSevereImpact, 1024);
   // 15% This is the estimated number of severe positive cases
   outPutImpact.severeCasesByRequestedTime = Calc(outPutImpact, 0.15);
   outPutSevereImpact.severeCasesByRequestedTime = Calc(outPutSevereImpact, 0.15);
