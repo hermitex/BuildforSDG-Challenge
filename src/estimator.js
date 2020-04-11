@@ -30,7 +30,7 @@ const normalizePeriod = (periodType, timeToElapse) => {
   }
 };
 
-const isWeeks = (period, periodType) => ((periodType.periodType.toLowerCase() === 'weeks') ? period + 1 : period);
+const isWeeks = (period, periodType) => ((periodType.periodType.toLowerCase() === 'weeks') ? period - 2 : period);
 
 const covid19ImpactEstimator = (data) => {
   const output = {
