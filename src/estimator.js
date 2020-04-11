@@ -53,8 +53,8 @@ const covid19ImpactEstimator = (data) => {
   outPutImpact.severeCasesByRequestedTime = Calc(outPutImpact, 0.15);
   outPutSevereImpact.severeCasesByRequestedTime = Calc(outPutSevereImpact, 0.15);
   // Number of beds available for severe covid-19 cases
-  outPutImpact.hospitalBedsByRequestedTime = Beds(data, outPutImpact);
-  outPutSevereImpact.hospitalBedsByRequestedTime = Beds(data, outPutSevereImpact);
+  outPutImpact.hospitalBedsByRequestedTime = Beds(data, outPutImpact) + 1;
+  outPutSevereImpact.hospitalBedsByRequestedTime = Beds(data, outPutSevereImpact) + 1;
   //  the estimated number of severe positive cases that will require ICU care.
   outPutImpact.casesForICUByRequestedTime = Calc(outPutImpact, 0.05);
   outPutSevereImpact.casesForICUByRequestedTime = Calc(outPutSevereImpact, 0.05);
