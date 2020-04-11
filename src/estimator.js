@@ -2,20 +2,21 @@
 const covidData = {
   region: {
     avgAge: 19.7,
-    avgDailyIncomeInUSD: 3,
-    avgDailyIncomePopulation: 0.75,
+    avgDailyIncomeInUSD: 4,
+    avgDailyIncomePopulation: 0.73,
     name: 'Africa'
   },
   periodType: 'days',
-  population: 2894929,
-  reportedCases: 536,
-  timeToElapse: 66,
-  totalHospitalBeds: 92474
+  population: 92931687,
+  reportedCases: 2747,
+  timeToElapse: 38,
+  totalHospitalBeds: 678874
 };
 
 const impact = (data, num) => data.reportedCases * num;
 const Cases = (data, num) => data.currentlyInfected * num;
-const NumberOfBeds = (beds, data) => beds.totalHospitalBeds - data.severeCasesByRequestedTime;
+const Beds = (beds, data) => Math.trunc(beds.totalHospitalBeds * 0.35)
+  - data.severeCasesByRequestedTime;
 const Calc = (cases, num) => cases.infectionsByRequestedTime * num;
 
 const normalizePeriod = (periodType, timeToElapse) => {
@@ -35,28 +36,28 @@ const covid19ImpactEstimator = (data) => {
     impact: {},
     severeImpact: {}
   };
-
+  // output.impact.currentlyInfected*66
   const pop = data.region.avgDailyIncomePopulation;
   const time = normalizePeriod(data.periodType, data.timeToElapse);
   const outPutSevereImpact = output.severeImpact;
   const outPutImpact = output.impact;
   const income = data.region.avgDailyIncomeInUSD;
-
+  // console.log(Math.trunc(time / 3));
   outPutImpact.currentlyInfected = impact(data, 10);
   output.severeImpact.currentlyInfected = impact(data, 50);
-  outPutImpact.infectionsByRequestedTime = Cases(outPutImpact, Math.trunc(time / 3));
-  output.severeImpact.infectionsByRequestedTime = Cases(outPutSevereImpact, Math.trunc(time / 3));
+  outPutImpact.infectionsByRequestedTime = Cases(outPutImpact, 2 ** Math.trunc(time / 3));
+  output.severeImpact.infectionsByRequestedTime = Cases(outPutSevereImpact, 2 ** Math.trunc(time / 3));
   // 15% This is the estimated number of severe positive cases
   outPutImpact.severeCasesByRequestedTime = Calc(outPutImpact, 0.15);
   outPutSevereImpact.severeCasesByRequestedTime = Calc(outPutSevereImpact, 0.15);
   // Number of beds available for severe covid-19 cases
-  outPutImpact.hospitalBedsByRequestedTime = NumberOfBeds(data, outPutImpact);
-  outPutSevereImpact.hospitalBedsByRequestedTime = NumberOfBeds(data, outPutSevereImpact);
+  outPutImpact.hospitalBedsByRequestedTime = Beds(data, outPutImpact);
+  outPutSevereImpact.hospitalBedsByRequestedTime = Beds(data, outPutSevereImpact);
   //  the estimated number of severe positive cases that will require ICU care.
   outPutImpact.casesForICUByRequestedTime = Calc(outPutImpact, 0.05);
   outPutSevereImpact.casesForICUByRequestedTime = Calc(outPutSevereImpact, 0.05);
   // the estimated number of severe positive cases that will require ventilators.
-  outPutImpact.casesForVentilatorsByRequestedTime = Math.round(Calc(outPutImpact, 0.02));
+  outPutImpact.casesForVentilatorsByRequestedTime = Math.trunc(Calc(outPutImpact, 0.02));
   outPutSevereImpact.casesForVentilatorsByRequestedTime = Calc(outPutSevereImpact, 0.02);
   // much money the economy is likely to lose over 30 days
   outPutImpact.dollarsInFlight = Math.trunc((Calc(outPutImpact, pop) * income) / time);
