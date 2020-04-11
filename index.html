@@ -3,11 +3,47 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="period-view content=" width=device-width, initial-scale="1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Covid-19 Impact Estimator</title>
 </head>
 
 <body>
+    <section class="form-container font-large">
+        <h1>Covid-19 Impact Estimator</h1>
+        <form action="" method="get">
+            <label for="population">Region Population</label>
+            <input type="range" id="population" name="population" required min="0" max="1000000000000000000000000"
+                step="1000" data-population>
+            <br><br>
+
+            <label for="time-to-elapse" data-population>Time to Elapse</label>
+            <input type="range" id="time-to-elapse" name="time-to-elapse" required min="0"
+                max="1000000000000000000000000" step="1000" data-time-to-elapse>
+            <br><br>
+            <label for="reported-cases" data-population>Reported Cases</label>
+            <input type="range" id="reported-cases" name="reported-cases" required min="0"
+                max="1000000000000000000000000" step="1000" data-total-hospital-beds>
+            <br><br>
+
+            <label for="total-hospital-beds" data-population>Total Hospital Beds Available</label>
+            <input type="number" id="total-hospital-beds" name="total-hospital-beds" required min="0"
+                max="1000000000000000000000000" step="100" data-total-hospital-beds>
+            <br><br>
+            <h3>Days or Weeks or Months?</h3>
+            <input type="radio" id="type-days" name="period-type" value="days" data-period-type>
+            <label for="type-days" data-population>Days</label>
+
+            <input type="radio" id="type-weeks" name="period-type" value="weeks" data-period-type>
+            <label for="type-weeks" data-population>Weeks</label>
+
+            <input type="radio" id="type-months" name="period-type" value="months" data-period-type>
+            <label for="type-months" data-population>Months</label>
+            <br><br>
+            <input type="submit" data-go-estimate value="Estimate the Impact" class="font-mid">
+
+        </form>
+    </section>
     <script src="./src/estimator.js"></script>
 </body>
 

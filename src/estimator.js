@@ -32,7 +32,7 @@ const normalizePeriod = (periodType, timeToElapse) => {
 
 const covid19ImpactEstimator = (data) => {
   const output = {
-    // data: {},
+    data,
     impact: {},
     servereImpact: {}
   };
