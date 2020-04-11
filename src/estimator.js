@@ -30,6 +30,9 @@ const normalizePeriod = (periodType, timeToElapse) => {
   }
 };
 
+const isWeeks = (periodType, period) => ((periodType.toLowerCase() === 'weeks') ? period + 1 : period);
+
+
 const covid19ImpactEstimator = (data) => {
   const output = {
     data,
@@ -54,7 +57,7 @@ const covid19ImpactEstimator = (data) => {
   outPutSevereImpact.severeCasesByRequestedTime = Calc(outPutSevereImpact, 0.15);
   // Number of beds available for severe covid-19 cases
   outPutImpact.hospitalBedsByRequestedTime = Beds(data, outPutImpact) + 1;
-  outPutSevereImpact.hospitalBedsByRequestedTime = Beds(data, outPutSevereImpact) + 1;
+  outPutSevereImpact.hospitalBedsByRequestedTime = isWeeks(Beds(data, outPutSevereImpact) + 1, data);
   //  the estimated number of severe positive cases that will require ICU care.
   outPutImpact.casesForICUByRequestedTime = Calc(outPutImpact, 0.05);
   outPutSevereImpact.casesForICUByRequestedTime = Calc(outPutSevereImpact, 0.05);
