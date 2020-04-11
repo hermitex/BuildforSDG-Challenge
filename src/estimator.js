@@ -70,8 +70,8 @@ const covid19ImpactEstimator = (data) => {
   // much money the economy is likely to lose over 30 days
   outPutImpact.dollarsInFlight = Math.trunc((Calc(outPutImpact, pop) * income) / time);
   outPutSevereImpact.dollarsInFlight = Math.trunc((Calc(outPutSevereImpact, pop) * income) / time);
-  console.log(output)
+  // console.log(output)
   return output;
 };
 covid19ImpactEstimator(covidData);
-// export default covid19ImpactEstimator;
+export default covid19ImpactEstimator;
