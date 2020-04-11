@@ -46,7 +46,9 @@ const covid19ImpactEstimator = (data) => {
   outPutImpact.currentlyInfected = impact(data, 10);
   output.severeImpact.currentlyInfected = impact(data, 50);
   outPutImpact.infectionsByRequestedTime = Cases(outPutImpact, 2 ** Math.trunc(time / 3));
-  output.severeImpact.infectionsByRequestedTime = Cases(outPutSevereImpact, 2 ** Math.trunc(time / 3));
+  output.severeImpact.infectionsByRequestedTime = Cases(
+    outPutSevereImpact, 2 ** Math.trunc(time / 3)
+  );
   // 15% This is the estimated number of severe positive cases
   outPutImpact.severeCasesByRequestedTime = Calc(outPutImpact, 0.15);
   outPutSevereImpact.severeCasesByRequestedTime = Calc(outPutSevereImpact, 0.15);
