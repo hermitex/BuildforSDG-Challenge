@@ -31,25 +31,25 @@ const normalizePeriod = (periodType, timeToElapse) => {
 };
 
 const covid19ImpactEstimator = (data) => {
-  const input = data;
+
   const output = {
-    data: input,
-
-    impact: {},
-    servereImpact: {}
-
+    data,
+    estimate: {
+      impact: {},
+      servereImpact: {}
+    }
   };
 
   const pop = data.region.avgDailyIncomePopulation;
   const time = normalizePeriod(data.periodType, data.timeToElapse);
-  const outPutSevereImpact = output.servereImpact;
-  const outPutImpact = output.impact;
+  const outPutSevereImpact = output.estimate.servereImpact;
+  const outPutImpact = output.estimate.impact;
   const income = data.region.avgDailyIncomeInUSD;
 
   outPutImpact.currentlyInfected = impact(data, 10);
-  output.servereImpact.currentlyInfected = impact(data, 50);
+  output.estimate.servereImpact.currentlyInfected = impact(data, 50);
   outPutImpact.infectionsByRequestedTime = severeCases(outPutImpact, 1024);
-  output.servereImpact.infectionsByRequestedTime = severeCases(outPutSevereImpact, 1024);
+  output.estimate.servereImpact.infectionsByRequestedTime = severeCases(outPutSevereImpact, 1024);
   // 15% This is the estimated number of severe positive cases
   outPutImpact.severeCasesByRequestedTime = Calc(outPutImpact, 0.15);
   outPutSevereImpact.severeCasesByRequestedTime = Calc(outPutSevereImpact, 0.15);
@@ -70,7 +70,8 @@ const covid19ImpactEstimator = (data) => {
   // much money the economy is likely to lose over 30 days
   outPutImpact.dollarsInFlight = Math.trunc((Calc(outPutImpact, pop) * income) / time);
   outPutSevereImpact.dollarsInFlight = Math.trunc((Calc(outPutSevereImpact, pop) * income) / time);
+  console.log(output)
   return output;
 };
 covid19ImpactEstimator(covidData);
-export default covid19ImpactEstimator;
+// export default covid19ImpactEstimator;
