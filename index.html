@@ -2,49 +2,114 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="period-view content=" width=device-width, initial-scale="1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/6164837c21.js" crossorigin="anonymous"></script>
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
-    <title>Covid-19 Impact Estimator</title>
+    <title>Covid-19 Estimator</title>
 </head>
 
-<body>
-    <section class="form-container font-large">
-        <h1>Covid-19 Impact Estimator</h1>
-        <form action="" method="get">
-            <label for="population">Region Population</label>
-            <input type="range" id="population" name="population" required min="0" max="1000000000000000000000000"
-                step="1000" data-population>
-            <br><br>
+<body class="container">
+    <section>
+        <form>
+            <div class="form-group">
+                <label for="population">Region Population</label>
+                <input type="number" id="population" class="form-control" aria-describedby="population"
+                    placeholder="Enter Population" min="0" step="1000" max="1000000000000000000000000" data-population
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="time-to-elapse">Time to Elapse</label>
+                <input type="number" class="form-control" id="time-to-elapse" name="time-to-elapse" required min="0"
+                    max="1000000000000000000000000" step="1000" data-time-to-elapse placeholder="Time to elapse">
+            </div>
 
-            <label for="time-to-elapse" data-population>Time to Elapse</label>
-            <input type="range" id="time-to-elapse" name="time-to-elapse" required min="0"
-                max="1000000000000000000000000" step="1000" data-time-to-elapse>
-            <br><br>
-            <label for="reported-cases" data-population>Reported Cases</label>
-            <input type="range" id="reported-cases" name="reported-cases" required min="0"
-                max="1000000000000000000000000" step="1000" data-total-hospital-beds>
-            <br><br>
+            <div class="form-group">
+                <label for="reported-cases">Reported Cases</label>
+                <input type="number" class="form-control" id="reported-cases" name="reported-cases" required min="0"
+                    max="1000000000000000000000000" step="1000" data-time-to-elapse placeholder="Reported Cases">
+            </div>
 
-            <label for="total-hospital-beds" data-population>Total Hospital Beds Available</label>
-            <input type="number" id="total-hospital-beds" name="total-hospital-beds" required min="0"
-                max="1000000000000000000000000" step="100" data-total-hospital-beds>
-            <br><br>
-            <h3>Days or Weeks or Months?</h3>
-            <input type="radio" id="type-days" name="period-type" value="days" data-period-type>
-            <label for="type-days" data-population>Days</label>
+            <div class="form-group">
+                <label for="total-hospital-beds">Hospital Beds Available</label>
+                <input type="number" class="form-control" id="total-hospital-beds" name="total-hospital-beds" required
+                    min="0" max="1000000000000000000000000" step="1000" data-total-hospital-beds
+                    placeholder="Hospital Beds Available">
+            </div>
 
-            <input type="radio" id="type-weeks" name="period-type" value="weeks" data-period-type>
-            <label for="type-weeks" data-population>Weeks</label>
 
-            <input type="radio" id="type-months" name="period-type" value="months" data-period-type>
-            <label for="type-months" data-population>Months</label>
-            <br><br>
-            <input type="submit" data-go-estimate value="Estimate the Impact" class="font-mid">
 
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="periodType" id="days" value="option1" checked>
+                <label class="form-check-label" for="days">
+                    Days
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="periodType" id="weeks" value="option2">
+                <label class="form-check-label" for="weeks">
+                    Weeks
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="periodType" id="months" value="option3">
+                <label class="form-check-label" for="months">
+                    Months
+                </label>
+            </div>
+
+            <input type="submit" class="btn btn-success" data-go-estimate value="Estimate the Impact"> </input>
         </form>
+
     </section>
+    <section class="card-text text-dark">
+        <p class="text-danger">There’s currently no vaccine to prevent coronavirus disease (COVID-19).</p>
+        <hr>
+        <p class="text-success">You can protect yourself and help prevent spreading the virus to others if you:</p>
+        <p class="text-warning">Do</p>
+        <ul class="list-group">
+            <li class="list-group-item"><i class="fas fa-check-circle text-success"></i>Wash your hands regularly for 20
+                seconds,
+                with soap and water or alcohol-based
+                hand rub</li>
+            <li class="list-group-item"><i class="fas fa-check-circle text-success"></i>Cover your nose and mouth with a
+                disposable
+                tissue or flexed elbow when you
+                cough or sneeze</li>
+            <li class="list-group-item"><i class="fas fa-check-circle text-success"></i>Avoid close contact (1 meter or
+                3 feet) with
+                people who are unwell</li>
+            <li class="list-group-item"><i class="fas fa-check-circle text-success"></i>Stay home and self-isolate from
+                others in the
+                household if you feel unwell</li>
+        </ul>
+        <p class="text-danger">Don't</p>
+        <ul class="list-group">
+            <li class="list-group-item">Touch your eyes, nose, or mouth if your hands are not clean</li>
+
+        </ul>
+    </section>
+    <script src="/unsplash.js"></script>
     <script src="./src/estimator.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
