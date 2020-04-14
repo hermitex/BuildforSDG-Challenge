@@ -165,6 +165,10 @@ footer{
     color: #50c6db;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    position: fixed;
+    bottom: 0;
+    height: 5rem;
+ 
 }
 footer small{
     color: yellow;
