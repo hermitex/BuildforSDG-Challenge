@@ -16,6 +16,40 @@ body{
     margin: 0 auto;
     background-color: #c3c3c3;
 }
+
+
+/* MENU */
+ a {    
+    color: #50c6db ;    
+    text-decoration: none;
+    cursor: pointer;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 !important;
+    padding-top: 0.5rem;
+    transition: all 0.7s ease-in;
+  }
+  a:hover {    
+    color: yellow;    
+    
+  }
+  .header {
+    background-color: #0a0a0a;
+    box-shadow: 5px 5px 3px 0 rgb(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    margin-bottom: 30rem !important;
+    color: #50c6db;
+    height: 3rem;
+    
+  }
+ 
+  /* MENU */
+
+
 section#first{
 height: 100%;
 }
@@ -66,7 +100,7 @@ form input[type="submit"]{
 
     @keyframes blink{
         50%{
-            opacity: 0.5;
+            opacity: 0.6;
                   
         }
     }
@@ -265,44 +299,93 @@ footer small{
       }
 
 
-     .impact{
+     .estimated-impact.impact{
          height: 100%;
         display: grid;
         grid-template-areas: 
-        "side1 side2"
-        "side3 side4"
-        "side5 side6"
-        "side7 side7"
+        "side1 side1"
+        "side2 side3"
+        "side4 side5"
+        "side6 side7"
+        "side8 side8"
         ;
      }
-     #side1{
+     /* .estimated-impact.impact #side11{
          grid-area: side1;
         
      }
-     #side2{
+     .estimated-impact.impact #side22{
          grid-area: side2; 
         
      }
-     #side3{
+      .estimated-impact.impact #side33{
          grid-area: side3; 
         
      }
-     #side4{
+      .estimated-impact.impact #side44{
          grid-area: side4; 
         
      }
-     #side5{
+      .estimated-impact.impact #side55{
         grid-area: side4; 
        
     }
-    #side6{
+     .estimated-impact.impact #side66{
         grid-area: side4; 
        
     }
-   #side7{
+    .estimated-impact.impact #side77{
     grid-area: side7;     
 
     } 
+     .estimated-impact.impact #side88{
+        grid-area: side7;     
+      } */
+
+      .estimated-severe-impact.impact{
+        height: 100%;
+       display: grid;
+       grid-template-areas: 
+       "side1 side1"
+       "side2 side3"
+       "side4 side5"
+       "side6 side7"
+       "side8 side8"
+       ;
+    }
+     /* .estimated-severe-impact.impact #side{
+        grid-area: side1;
+       
+    }
+     .estimated-severe-impact.impact #side{
+        grid-area: side2; 
+       
+    }
+     .estimated-severe-impact.impact #side{
+        grid-area: side3; 
+       
+    }
+     .estimated-severe-impact.impact #side{
+        grid-area: side4; 
+       
+    }
+     .estimated-severe-impact.impact #side{
+       grid-area: side4; 
+      
+   }
+    .estimated-severe-impact.impact #side{
+       grid-area: side4; 
+      
+   }
+   .estimated-severe-impact.impact #side{
+   grid-area: side7;     
+
+   } 
+    .estimated-severe-impact.impact #side{
+       grid-area: side7;     
+   
+       } */
+
     section div{
         padding-bottom: 5rem;
         padding-top: 5rem;
