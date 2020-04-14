@@ -58,98 +58,117 @@
         </form>
     </section>
 
-    <section class="estimated-impact">
+    <section class="estimated-impact impact">
         <h2 class="impact-type">Estimated Impact</h2>
         <div class="form-group">
-            <label for="population">Currently Infected</label>
-            <input type="number" id="population" class="form-control population" aria-describedby="population"
-                placeholder="Enter Population" min="0" data-population required>
+
+            <input type="button" id="population" class="form-control population" aria-describedby="population"
+                value="27470" min="0" data-population required>
+            <h2>Currently Infected</h2>
         </div>
         <div class="form-group">
-            <label for="time-to-elapse">Infections</label>
-            <input type="number" class="form-control time" id="time-to-elapse" name="time-to-elapse" required
-                data-time-to-elapse placeholder="Time to elapse">
+
+            <input type="button" class="form-control time" id="time-to-elapse" name="time-to-elapse" required
+                data-time-to-elapse value="112517120">
+            <h2 for="time-to-elapse">Infections</h2>
         </div>
 
         <div class="form-group">
-            <label for="reported-cases">Severe Cases</label>
-            <input type="number" class="form-control cases " id="reported-cases" name="reported-cases" required
-                data-reported-cases placeholder="Reported Cases">
+            <input type="button" class="form-control cases " id="reported-cases" name="reported-cases" required
+                data-reported-cases value="16877568">
+            <h2 for="reported-cases">Severe Cases</h2>
+
         </div>
 
         <div class="form-group">
-            <label for="total-hospital-beds">Hospital Beds Available</label>
-            <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
-                data-total-hospital-beds placeholder="Hospital Beds Available">
+            <input type="button" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
+                data-total-hospital-beds value="-16639962">
+            <h2 for="total-hospital-beds">Hospital Beds Available</h2>
+
         </div>
 
         <div class="form-group">
-            <label for="total-hospital-beds">Patients in of ICU</label>
-            <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
-                data-total-hospital-beds placeholder="Hospital Beds Available">
+            <input type="button" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
+                data-total-hospital-beds value="5625856">
+            <h2 for="total-hospital-beds">Patients in of ICU</h2>
+
         </div>
 
         <div class="form-group">
-            <label for="total-hospital-beds">Patients in of Ventilators</label>
-            <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
-                data-total-hospital-beds placeholder="Hospital Beds Available">
+            <input type="button" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
+                data-total-hospital-beds value="2250342">
+            <h2 for="total-hospital-beds">Patients in of Ventilators</h2>
+
         </div>
 
         <div class="form-group">
-            <label for="total-hospital-beds">Money Lost</label>
-            <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
-                data-total-hospital-beds placeholder="Hospital Beds Available">
+            <input type="button" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
+                data-total-hospital-beds value="12484899635">
+            <h2 for="total-hospital-beds">Money Lost</h2>
+
         </div>
     </section>
 
 
-    <section class="bigBorder">
-        <section class="estimated-severe-impact">
-            <h2 class="impact-type">Estimated Severe Impact</h2>
-            <div class="form-group">
-                <label for="population">Currently Infected</label>
-                <input type="number" id="population" class="form-control population" aria-describedby="population"
-                    placeholder="Enter Population" min="0" data-population required>
-            </div>
-            <div class="form-group">
-                <label for="time-to-elapse">Infections</label>
-                <input type="number" class="form-control time" id="time-to-elapse" name="time-to-elapse" required
-                    data-time-to-elapse placeholder="Time to elapse">
-            </div>
 
-            <div class="form-group">
-                <label for="reported-cases">Severe Cases</label>
-                <input type="number" class="form-control cases " id="reported-cases" name="reported-cases" required
-                    data-reported-cases placeholder="Reported Cases">
-            </div>
+    <section class="estimated-severe-impact impact">
+        <h2 class="impact-type">Estimated Severe Impact</h2>
+        <div class="form-group">
+            <input type="button" id="population" class="form-control population" aria-describedby="population"
+                value="137350" data-population required>
+            <h2 for="population">Currently Infected</h2>
 
-            <div class="form-group">
-                <label for="total-hospital-beds">Hospital Beds Available</label>
-                <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
-                    required data-total-hospital-beds placeholder="Hospital Beds Available">
-            </div>
+        </div>
+        <div class="form-group">
+            <input type="button" class="form-control time" id="time-to-elapse" name="time-to-elapse" required
+                data-time-to-elapse value="562585600">
+            <h2 for="time-to-elapse">Infections</h2>
 
-            <div class="form-group">
-                <label for="total-hospital-beds">Patients in of ICU</label>
-                <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
-                    required data-total-hospital-beds placeholder="Hospital Beds Available">
-            </div>
+        </div>
 
-            <div class="form-group">
-                <label for="total-hospital-beds">Patients in of Ventilators</label>
-                <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
-                    required data-total-hospital-beds placeholder="Hospital Beds Available">
-            </div>
+        <div class="form-group">
 
-            <div class="form-group">
-                <label for="total-hospital-beds">Money Lost</label>
-                <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
-                    required data-total-hospital-beds placeholder="Hospital Beds Available">
-            </div>
-        </section>
+            <input type="button" class="form-control cases " id="reported-cases" name="reported-cases" required
+                data-reported-cases value="84387840">
+            <h2 for="reported-cases">Severe Cases</h2>
 
+        </div>
 
+        <div class="form-group">
+            <input type="button" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
+                data-total-hospital-beds value="-84150234">
+            <h2 for="total-hospital-beds">Hospital Beds Available</h2>
+
+        </div>
+
+        <div class="form-group">
+            <input type="button" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
+                data-total-hospital-beds value="28129280">
+            <h2 for="total-hospital-beds">Patients in of ICU</h2>
+
+        </div>
+
+        <div class="form-group">
+            <input type="button" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
+                data-total-hospital-beds value="11251712">
+            <h2 for="total-hospital-beds">Patients in of Ventilators</h2>
+
+        </div>
+
+        <div class="form-group">
+            <input type="button" class="form-control money" id="total-hospital-beds" name="total-hospital-beds" required
+                data-total-hospital-beds value="62434498176">
+            <h2 for="total-hospital-beds">Money Lost</h2>
+
+        </div>
     </section>
+    </section>
+    <footer>
+        <p>COVID-19 Impact Estimator</p>
+        <p>Built by Tiberius</p>
+        <small>Courtesy of Andela</small>
+    </footer>
+    <script src="/input.js"></script>
 </body>
 
 </html>
