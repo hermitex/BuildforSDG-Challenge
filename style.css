@@ -59,6 +59,18 @@ form input[type="submit"]{
     
 }
 
+form input[type="submit"]{
+    animation: blink 1s linear infinite;
+    
+    }
+
+    @keyframes blink{
+        50%{
+            opacity: 0.5;
+                  
+        }
+    }
+
 
 
 section div{
@@ -69,8 +81,11 @@ section div{
     color: #50c6db;
     margin: 0.5rem;
     /* border: 1rem black solid; */
+    
    
 }
+
+
 
 
 .side1{
@@ -94,6 +109,10 @@ section div{
    
     border-radius: 1.5rem 0.5rem;
 }
+.side6{
+   
+    border-radius: 1.5rem 0.5rem;
+}
 
 
 section.impact div{
@@ -108,6 +127,8 @@ background-color: #50c6db;
 margin-bottom: 0.5rem;
 
 }
+
+    
 
 
 section.impact div h2{
@@ -150,6 +171,20 @@ section.impact input:hover{
 
     }
 
+
+    section.impact input{
+        animation: blink 1.8s linear infinite;
+        
+        }
+    
+        @keyframes blink{
+            50%{
+                padding: 1rem;
+                      
+            }
+        }
+    
+
     .danger{
         background-color: red;
         color: #ffffff !important;
@@ -190,7 +225,10 @@ footer small{
         display: grid;
         grid-template-areas: 
         "side1 side2"
-        "side3 side4";
+        "side3 side4"
+        "side5 side6"
+        "side7 side7"
+        ;
      }
      .side1{
          grid-area: side1;
@@ -198,7 +236,7 @@ footer small{
      }
      .side2{
          grid-area: side2; 
-         border-radius: 1.5rem 0.5rem;
+         border-radius: 0.5rem 1.5rem;
      }
      .side3{
          grid-area: side3; 
@@ -208,6 +246,68 @@ footer small{
          grid-area: side4; 
          border-radius: 1.5rem 0.5rem;
      }
+     .side5{
+        grid-area: side4; 
+        border-radius: 1.5rem 0.5rem;
+    }
+    .side6{
+        grid-area: side4; 
+        border-radius: 1.5rem 0.5rem;
+    }
+   .side7{
+    grid-area: side7;     
+
+    } 
+    section div{
+        padding-bottom: 5rem;
+        padding-top: 5rem;
+         
+      }
+
+
+     .impact{
+         height: 100%;
+        display: grid;
+        grid-template-areas: 
+        "side1 side2"
+        "side3 side4"
+        "side5 side6"
+        "side7 side7"
+        ;
+     }
+     #side1{
+         grid-area: side1;
+        
+     }
+     #side2{
+         grid-area: side2; 
+        
+     }
+     #side3{
+         grid-area: side3; 
+        
+     }
+     #side4{
+         grid-area: side4; 
+        
+     }
+     #side5{
+        grid-area: side4; 
+       
+    }
+    #side6{
+        grid-area: side4; 
+       
+    }
+   #side7{
+    grid-area: side7;     
+
+    } 
+    section div{
+        padding-bottom: 5rem;
+        padding-top: 5rem;
+         
+      }
 
 }
 
@@ -221,5 +321,6 @@ footer small{
     
 
 }
+
 
 
