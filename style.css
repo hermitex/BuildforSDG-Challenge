@@ -1,21 +1,14 @@
-*{
+/* *{
     padding: 0;
   
    
 }
 
-html{
-    overflow: hidden;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-}
+
 
 body{
  
     background-color: #15141f;
     color: yellow;
 }
-
-.textDark{
-    color: #0a0a00;
-}
+ */
