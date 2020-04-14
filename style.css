@@ -192,6 +192,7 @@ section.impact input:hover{
     /* border-radius: 50%; */
     box-shadow: 2px 5px #888888;
     font-size: 2;
+    animation: none;
     }
     section.impact div h2, 
     section.impact div input{ 
@@ -201,11 +202,10 @@ section.impact input:hover{
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    justify-items: center;
+    justify-items: center;    
 
     }
-
-
+    
     section.impact input{
         animation: blink 1.8s linear infinite;
         
@@ -220,9 +220,10 @@ section.impact input:hover{
     
 
     .danger{
-        background-color: red;
-        color: #ffffff !important;
+        background-color: yellow;
+        color: #0a0a0a !important;
     }
+
 footer{
     width: 100%;
     display: flex;
@@ -310,7 +311,7 @@ footer small{
         "side8 side8"
         ;
      }
-     /* .estimated-impact.impact #side11{
+     .estimated-impact.impact #side11{
          grid-area: side1;
         
      }
@@ -327,11 +328,11 @@ footer small{
         
      }
       .estimated-impact.impact #side55{
-        grid-area: side4; 
+        grid-area: side5; 
        
     }
      .estimated-impact.impact #side66{
-        grid-area: side4; 
+        grid-area: side6; 
        
     }
     .estimated-impact.impact #side77{
@@ -339,8 +340,8 @@ footer small{
 
     } 
      .estimated-impact.impact #side88{
-        grid-area: side7;     
-      } */
+        grid-area: side8;     
+      }
 
       .estimated-severe-impact.impact{
         height: 100%;
@@ -353,38 +354,38 @@ footer small{
        "side8 side8"
        ;
     }
-     /* .estimated-severe-impact.impact #side{
+     .estimated-severe-impact.impact .side1{
         grid-area: side1;
        
     }
-     .estimated-severe-impact.impact #side{
+     .estimated-severe-impact.impact .side2{
         grid-area: side2; 
        
     }
-     .estimated-severe-impact.impact #side{
+     .estimated-severe-impact.impact .side3{
         grid-area: side3; 
        
     }
-     .estimated-severe-impact.impact #side{
+     .estimated-severe-impact.impact .side4{
         grid-area: side4; 
        
     }
-     .estimated-severe-impact.impact #side{
-       grid-area: side4; 
+     .estimated-severe-impact.impact .side5{
+       grid-area: side5; 
       
    }
-    .estimated-severe-impact.impact #side{
-       grid-area: side4; 
+    .estimated-severe-impact.impact .side6{
+       grid-area: side6; 
       
    }
-   .estimated-severe-impact.impact #side{
+   .estimated-severe-impact.impact .side7{
    grid-area: side7;     
 
    } 
-    .estimated-severe-impact.impact #side{
-       grid-area: side7;     
+    .estimated-severe-impact.impact .side8{
+       grid-area: side8;     
    
-       } */
+       }
 
     section div{
         padding-bottom: 5rem;
@@ -407,3 +408,16 @@ footer small{
 
 
 
+.impact #impact-type-2,  #side11{
+    color: red !important;
+    border-radius: 0 !important;
+   height: 10vh;
+    padding: 0;
+    background-color: #0a0a0a;
+}
+
+.impact #impact-type-2 h2,  #side11 h2{    
+    color: yellow !important;
+    padding-top: 1rem;
+    font-size: 1.2rem !important;
+}
