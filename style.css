@@ -19,10 +19,6 @@ body{
 section#first{
 height: 100%;
 }
-section h2{
-    /* color: #009900; */
-    
-}
 
 form label{
     margin-bottom: 1rem;
