@@ -8,8 +8,8 @@
     <meta name="description" content="Estimate the impact of COVID-19 on humanity, heath systems and the economy.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <!-- Fontawesome -->
     <!-- <script src="https://kit.fontawesome.com/6164837c21.js" crossorigin="anonymous"></script> -->
@@ -18,22 +18,107 @@
     <title>Covid-19 Estimator</title>
 </head>
 
-<body class="container" style="background-color: #0a0a0a; color: yellow">
-    <section>
-        <form>
-            <div class="form-group">
+<body class="container">
+    <section class="bigBorder" id="first">
+        <h2 class="impact-type">Region Data</h2>
+        <form multicolumn>
+            <div class="form-group side1">
                 <label for="population">Region Population</label>
                 <input type="number" id="population" class="form-control population" aria-describedby="population"
                     placeholder="Enter Population" min="0" data-population required>
             </div>
-            <div class="form-group">
+            <div class="form-group side2">
                 <label for="time-to-elapse">Time to Elapse</label>
                 <input type="number" class="form-control time" id="time-to-elapse" name="time-to-elapse" required
                     data-time-to-elapse placeholder="Time to elapse">
             </div>
 
-            <div class="form-group">
+            <div class="form-group side3">
                 <label for="reported-cases">Reported Cases</label>
+                <input type="number" class="form-control cases " id="reported-cases" name="reported-cases" required
+                    data-reported-cases placeholder="Reported Cases">
+            </div>
+
+            <div class="form-group side4">
+                <label for="total-hospital-beds">Hospital Beds Available</label>
+                <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
+                    required data-total-hospital-beds placeholder="Hospital Beds Available">
+            </div>
+
+            <div class="input-group mb-3 side5">
+                <label class="input-group-text" for="periodType">Period in</label>
+                <select class="custom-select" id="periodType" data-period-type>
+                    <option value="days">Days</option>
+                    <option value="weeks">Weeks</option>
+                    <option value="months">Months</option>
+                </select>
+            </div>
+            <input type="submit" class="btn" data-go-estimate value="Estimate the Impact">
+            </input>
+        </form>
+    </section>
+
+    <section class="estimated-impact">
+        <h2 class="impact-type">Estimated Impact</h2>
+        <div class="form-group">
+            <label for="population">Currently Infected</label>
+            <input type="number" id="population" class="form-control population" aria-describedby="population"
+                placeholder="Enter Population" min="0" data-population required>
+        </div>
+        <div class="form-group">
+            <label for="time-to-elapse">Infections</label>
+            <input type="number" class="form-control time" id="time-to-elapse" name="time-to-elapse" required
+                data-time-to-elapse placeholder="Time to elapse">
+        </div>
+
+        <div class="form-group">
+            <label for="reported-cases">Severe Cases</label>
+            <input type="number" class="form-control cases " id="reported-cases" name="reported-cases" required
+                data-reported-cases placeholder="Reported Cases">
+        </div>
+
+        <div class="form-group">
+            <label for="total-hospital-beds">Hospital Beds Available</label>
+            <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
+                data-total-hospital-beds placeholder="Hospital Beds Available">
+        </div>
+
+        <div class="form-group">
+            <label for="total-hospital-beds">Patients in of ICU</label>
+            <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
+                data-total-hospital-beds placeholder="Hospital Beds Available">
+        </div>
+
+        <div class="form-group">
+            <label for="total-hospital-beds">Patients in of Ventilators</label>
+            <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
+                data-total-hospital-beds placeholder="Hospital Beds Available">
+        </div>
+
+        <div class="form-group">
+            <label for="total-hospital-beds">Money Lost</label>
+            <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds" required
+                data-total-hospital-beds placeholder="Hospital Beds Available">
+        </div>
+    </section>
+
+
+    <section class="bigBorder">
+        <section class="estimated-severe-impact">
+            <h2 class="impact-type">Estimated Severe Impact</h2>
+            <div class="form-group">
+                <label for="population">Currently Infected</label>
+                <input type="number" id="population" class="form-control population" aria-describedby="population"
+                    placeholder="Enter Population" min="0" data-population required>
+            </div>
+            <div class="form-group">
+                <label for="time-to-elapse">Infections</label>
+                <input type="number" class="form-control time" id="time-to-elapse" name="time-to-elapse" required
+                    data-time-to-elapse placeholder="Time to elapse">
+            </div>
+
+            <div class="form-group">
+                <label for="reported-cases">Severe Cases</label>
                 <input type="number" class="form-control cases " id="reported-cases" name="reported-cases" required
                     data-reported-cases placeholder="Reported Cases">
             </div>
@@ -44,53 +129,26 @@
                     required data-total-hospital-beds placeholder="Hospital Beds Available">
             </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="periodType">Period in</label>
-                </div>
-                <select class="custom-select" id="periodType" data-period-type>
-                    <option value="days">Days</option>
-                    <option value="weeks">Weeks</option>
-                    <option value="months">Months</option>
-                </select>
+            <div class="form-group">
+                <label for="total-hospital-beds">Patients in of ICU</label>
+                <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
+                    required data-total-hospital-beds placeholder="Hospital Beds Available">
             </div>
-            <br>
-            <input type="submit" class="btn " style="color: #0a0a0a; background-color: #ffffff;" data-go-estimate
-                value="Estimate the Impact">
-            </input>
-        </form>
-        <br>
-    </section>
-    <section class="card-text " style="color: #ffffff;">
-        <p class="text-warning">There’s currently no vaccine to prevent coronavirus disease (COVID-19).</p>
-        <hr>
-        <p class="text-success">You can protect yourself and help prevent spreading the virus to others if you:</p>
-        <p class="text-warning">Do</p>
-        <ul class="list-group">
-            <!-- <i class="fas fa-check-circle text-success"></i> -->
-            <li class="list-group-item">Wash your hands regularly for 20
-                seconds,
-                with soap and water or alcohol-based
-                hand rub</li>
-            <!-- <i class="fas fa-check-circle text-success"></i> -->
-            <li class="list-group-item">Cover your nose and mouth with a
-                disposable
-                tissue or flexed elbow when you
-                cough or sneeze</li>
-            <!-- <i class="fas fa-check-circle text-success"></i> -->
-            <li class="list-group-item">Avoid close contact (1 meter or
-                3 feet) with
-                people who are unwell</li>
-            <!-- <i class="fas fa-check-circle text-success"></i> -->
-            <li class="list-group-item">Stay home and self-isolate from
-                others in the
-                household if you feel unwell</li>
-        </ul>
-        <p class="text-danger">Don't</p>
-        <ul class="list-group">
-            <li class="list-group-item">Touch your eyes, nose, or mouth if your hands are not clean</li>
 
-        </ul>
+            <div class="form-group">
+                <label for="total-hospital-beds">Patients in of Ventilators</label>
+                <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
+                    required data-total-hospital-beds placeholder="Hospital Beds Available">
+            </div>
+
+            <div class="form-group">
+                <label for="total-hospital-beds">Money Lost</label>
+                <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
+                    required data-total-hospital-beds placeholder="Hospital Beds Available">
+            </div>
+        </section>
+
+
     </section>
 </body>
 
