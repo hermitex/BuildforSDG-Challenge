@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="theme-color">
+    <meta name="description" content="Estimate the impact of COVID-19 on humanity, heath systems and the economy.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <!-- Fontawesome -->
+    <!-- <script src="https://kit.fontawesome.com/6164837c21.js" crossorigin="anonymous"></script> -->
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <title>Covid-19 Estimator</title>
+</head>
+
+
+<body>
+    <header class="header">
+        <a href="/" class="logo">COVID-19 IMPACT ESTIMATOR</a>
+    </header>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="container">
+        <section class="bigBorder" id="first">
+            <h2 class="impact-type">Region Data</h2>
+            <form multicolumn>
+                <div class="form-group side1">
+                    <label for="population">Region Name</label>
+                    <input type="text" id="population" class="form-control population" aria-describedby="population"
+                        placeholder="e.g Africa" data-population required>
+                </div>
+                <div class="form-group side2">
+                    <label for="population">Region Population</label>
+                    <input type="number" id="population" class="form-control population" aria-describedby="population"
+                        placeholder="Enter Population" min="0" data-population required>
+                </div>
+                <div class="form-group side3">
+                    <label for="time-to-elapse">Time to Elapse</label>
+                    <input type="number" class="form-control time" id="time-to-elapse" name="time-to-elapse" required
+                        data-time-to-elapse placeholder="Time to elapse">
+                </div>
+
+                <div class="form-group side4">
+                    <label for="reported-cases">Reported Cases</label>
+                    <input type="number" class="form-control cases " id="reported-cases" name="reported-cases" required
+                        data-reported-cases placeholder="Reported Cases">
+                </div>
+
+                <div class="form-group side5">
+                    <label for="total-hospital-beds">Hospital Beds Available</label>
+                    <input type="number" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
+                        required data-total-hospital-beds placeholder="Hospital Beds Available">
+                </div>
+
+                <div class="input-group mb-3 side6">
+                    <label class="input-group-text" for="periodType">Period in</label>
+                    <select class="custom-select" id="periodType" data-period-type>
+                        <option value="days">Days</option>
+                        <option value="weeks">Weeks</option>
+                        <option value="months">Months</option>
+                    </select>
+                </div>
+                <section class="side7">
+                    <input type="submit" class="btn " data-go-estimate value="Estimate the Impact">
+                    </input>
+                </section>
+
+            </form>
+        </section>
+        <br>
+        <section class="estimated-impact impact">
+            <div id="side11" id="div">
+                <h2 class="impact-type">Estimated Impact</h2>
+            </div>
+            <div class="form-group" id="side22">
+
+                <input type="button" id="population" class="form-control population" aria-describedby="population"
+                    value="27470" min="0" data-population required>
+                <h2>Currently Infected</h2>
+            </div>
+            <div class="form-group" id="side33">
+
+                <input type="button" class="form-control time" id="time-to-elapse" name="time-to-elapse" required
+                    data-time-to-elapse value="112517120">
+                <h2 for="time-to-elapse">Infections</h2>
+            </div>
+
+            <div class="form-group" id="side44">
+                <input type="button" class="form-control cases " id="reported-cases" name="reported-cases" required
+                    data-reported-cases value="16877568">
+                <h2 for="reported-cases">Severe Cases</h2>
+
+            </div>
+
+            <div class="form-group" id="side55">
+                <input type="button" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
+                    required data-total-hospital-beds value="-16639962">
+                <h2 for="total-hospital-beds">Hospital Beds Available</h2>
+
+            </div>
+
+            <div class="form-group" id="side66">
+                <input type="button" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
+                    required data-total-hospital-beds value="5625856">
+                <h2 for="total-hospital-beds">Patients in need of ICU</h2>
+
+            </div>
+
+            <div class="form-group" id="side77">
+                <input type="button" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
+                    required data-total-hospital-beds value="2250342">
+                <h2 for="total-hospital-beds">Patients in need of Ventilators</h2>
+
+            </div>
+
+            <div class="form-group" id="side88">
+                <input type="button" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
+                    required data-total-hospital-beds value="12484899635">
+                <h2 for="total-hospital-beds">Money Lost</h2>
+
+            </div>
+        </section>
+
+
+
+        <section class="estimated-severe-impact impact">
+            <div class="side1" id="impact-type-2">
+                <h2 class="impact-type">Estimated Severe Impact</h2>
+            </div>
+
+            <div class="form-group side2">
+                <input type="button" id="population" class="form-control population" aria-describedby="population"
+                    value="137350" data-population required>
+                <h2 for="population">Currently Infected</h2>
+
+            </div>
+            <div class="form-group side3">
+                <input type="button" class="form-control time" id="time-to-elapse" name="time-to-elapse" required
+                    data-time-to-elapse value="562585600">
+                <h2 for="time-to-elapse">Infections</h2>
+
+            </div>
+
+            <div class="form-group side4">
+
+                <input type="button" class="form-control cases " id="reported-cases" name="reported-cases" required
+                    data-reported-cases value="84387840">
+                <h2 for="reported-cases">Severe Cases</h2>
+
+            </div>
+
+            <div class="form-group side5">
+                <input type="button" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
+                    required data-total-hospital-beds value="-84150234">
+                <h2 for="total-hospital-beds">Hospital Beds Available</h2>
+
+            </div>
+
+            <div class="form-group side6">
+                <input type="button" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
+                    required data-total-hospital-beds value="28129280">
+                <h2 for="total-hospital-beds">Patients in need of ICU</h2>
+
+            </div>
+
+            <div class="form-group side7">
+                <input type="button" class="form-control beds" id="total-hospital-beds" name="total-hospital-beds"
+                    required data-total-hospital-beds value="11251712">
+                <h2 for="total-hospital-beds">Patients in need of Ventilators</h2>
+
+            </div>
+
+            <div class="form-group side8">
+                <input type="button" class="form-control money" id="total-hospital-beds" name="total-hospital-beds"
+                    required data-total-hospital-beds value="62434498176">
+                <h2 for="total-hospital-beds">Money Lost</h2>
+
+            </div>
+        </section>
+        <br><br><br><br><br><br>
+        <footer>
+            <p>COVID-19 Impact Estimator</p>
+            <p>Built by Tiberius</p>
+            <small>Courtesy of Andela</small>
+        </footer>
+    </section>
+
+    <script src="/input.js"></script>
+</body>
+
+</html>

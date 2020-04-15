@@ -1,0 +1,426 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    overflow-y: scroll;
+    
+}
+
+body{
+    width: 100vw;
+    height: 100hv;
+    margin: 0 auto;
+    background-color: #c3c3c3;
+}
+
+
+/* MENU */
+ a {    
+    color: #50c6db ;    
+    text-decoration: none;
+    cursor: pointer;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 !important;
+    padding-top: 0.5rem;
+    transition: all 0.7s ease-in;
+  }
+  a:hover {    
+    color: yellow;    
+    
+  }
+  .header {
+    background-color: #0a0a0a;
+    box-shadow: 5px 5px 3px 0 rgb(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    margin-bottom: 30rem !important;
+    color: #50c6db;
+    height: 3rem;
+    
+  }
+ 
+  /* MENU */
+
+
+section#first{
+height: 100%;
+}
+
+form label{
+    margin-bottom: 1rem;
+    display: block;
+    text-align: center;
+}
+form input, #periodType{
+    display: flex;
+    width: auto;
+    margin: 0 auto;
+    
+}
+form #periodType{
+    border: none;
+    padding: 1rem;
+    border: none !important;
+    margin: none;
+    background-color: #c3c3c3;
+    color: #0a0a0a;
+    font-size: 1rem;
+    width: 15rem;
+}
+form input{
+    border: none;
+    padding: 1rem;
+    border: none !important;
+    margin: none;
+    background-color: #c3c3c3;
+    color: #0a0a0a;
+    font-size: 1rem;
+
+}
+form input[type="submit"]{
+    background-color: green;
+    color: #ffffff;
+    border-radius: 1rem;
+  
+    
+}
+
+form input[type="submit"]{
+    animation: blink 1s linear infinite;
+    
+    }
+
+    @keyframes blink{
+        50%{
+            opacity: 0.6;
+                  
+        }
+    }
+
+
+
+section div{
+    background-color: #0a0a0a;
+    /* background-color: rgba(38, 35, 63, 0.5); */
+    padding: 1.5rem;
+    /* color: yellow; */
+    color: #50c6db;
+    margin: 0.5rem;
+    /* border: 1rem black solid; */
+    
+   
+}
+
+
+
+
+.side1{
+    
+    border-radius: 1.5rem 0.5rem;
+}
+.side2{
+
+    border-radius: 1.5rem 0.5rem;
+}
+.side3{
+
+    border-radius: 0.5rem 1.5rem;
+}
+.side4{
+   
+    border-radius: 1.5rem 0.5rem;
+}
+
+.side5{
+   
+    border-radius: 1.5rem 0.5rem;
+}
+.side6{
+   
+    border-radius: 1.5rem 0.5rem;
+}
+
+
+section.impact div{
+border-radius: 50%;
+height: 40vh;
+width: 40vh;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+text-align: center;
+background-color: #50c6db;
+margin-bottom: 0.5rem;
+
+}
+
+    
+
+
+section.impact div h2{
+  color: #0a0a0a;
+    }
+
+section.impact input{
+    /* border-radius: 50%; */
+    height: 10vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 1rem;
+    outline: none;  
+    cursor: pointer;  
+    font-size: 1rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;        
+        color: #0a0a0a;
+    transition: all ease-in 0.1s;
+    }
+    
+  
+
+section.impact input:hover{
+    /* border-radius: 50%; */
+    box-shadow: 2px 5px #888888;
+    font-size: 2;
+    animation: none;
+    }
+    section.impact div h2, 
+    section.impact div input{ 
+    width: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;    
+
+    }
+    
+    section.impact input{
+        animation: blink 1.8s linear infinite;
+        
+        }
+    
+        @keyframes blink{
+            50%{
+                padding: 1rem;
+                      
+            }
+        }
+    
+
+    .danger{
+        background-color: yellow;
+        color: #0a0a0a !important;
+    }
+
+footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    background-color: #0a0a0a;
+    color: #50c6db;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    position: fixed;
+    bottom: 0;
+    height: 5rem;
+ 
+}
+footer small{
+    color: yellow;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    footer{
+        display: none !important;
+    }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    form{
+        display: grid;
+        grid-template-areas: 
+        "side1 side2"
+        "side3 side4"
+        "side5 side6"
+        "side7 side7"
+        ;
+     }
+     .side1{
+         grid-area: side1;
+         border-radius: 1.5rem 0.5rem;
+     }
+     .side2{
+         grid-area: side2; 
+         border-radius: 0.5rem 1.5rem;
+     }
+     .side3{
+         grid-area: side3; 
+         border-radius: 0.5rem 1.5rem;
+     }
+     .side4{
+         grid-area: side4; 
+         border-radius: 1.5rem 0.5rem;
+     }
+     .side5{
+        grid-area: side4; 
+        border-radius: 1.5rem 0.5rem;
+    }
+    .side6{
+        grid-area: side4; 
+        border-radius: 1.5rem 0.5rem;
+    }
+   .side7{
+    grid-area: side7;     
+
+    } 
+    section div{
+        padding-bottom: 5rem;
+        padding-top: 5rem;
+         
+      }
+
+
+     .estimated-impact.impact{
+         height: 100%;
+        display: grid;
+        grid-template-areas: 
+        "side1 side1"
+        "side2 side3"
+        "side4 side5"
+        "side6 side7"
+        "side8 side8"
+        ;
+     }
+     .estimated-impact.impact #side11{
+         grid-area: side1;
+        
+     }
+     .estimated-impact.impact #side22{
+         grid-area: side2; 
+        
+     }
+      .estimated-impact.impact #side33{
+         grid-area: side3; 
+        
+     }
+      .estimated-impact.impact #side44{
+         grid-area: side4; 
+        
+     }
+      .estimated-impact.impact #side55{
+        grid-area: side5; 
+       
+    }
+     .estimated-impact.impact #side66{
+        grid-area: side6; 
+       
+    }
+    .estimated-impact.impact #side77{
+    grid-area: side7;     
+
+    } 
+     .estimated-impact.impact #side88{
+        grid-area: side8;     
+      }
+
+      .estimated-severe-impact.impact{
+        height: 100%;
+       display: grid;
+       grid-template-areas: 
+       "side1 side1"
+       "side2 side3"
+       "side4 side5"
+       "side6 side7"
+       "side8 side8"
+       ;
+    }
+     .estimated-severe-impact.impact .side1{
+        grid-area: side1;
+       
+    }
+     .estimated-severe-impact.impact .side2{
+        grid-area: side2; 
+       
+    }
+     .estimated-severe-impact.impact .side3{
+        grid-area: side3; 
+       
+    }
+     .estimated-severe-impact.impact .side4{
+        grid-area: side4; 
+       
+    }
+     .estimated-severe-impact.impact .side5{
+       grid-area: side5; 
+      
+   }
+    .estimated-severe-impact.impact .side6{
+       grid-area: side6; 
+      
+   }
+   .estimated-severe-impact.impact .side7{
+   grid-area: side7;     
+
+   } 
+    .estimated-severe-impact.impact .side8{
+       grid-area: side8;     
+   
+       }
+
+    section div{
+        padding-bottom: 5rem;
+        padding-top: 5rem;
+         
+      }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    
+
+}
+
+
+
+.impact #impact-type-2,  #side11{
+    color: red !important;
+    border-radius: 0 !important;
+   height: 10vh;
+    padding: 0;
+    background-color: #0a0a0a;
+}
+
+.impact #impact-type-2 h2,  #side11 h2{    
+    color: yellow !important;
+    padding-top: 1rem;
+    font-size: 1.2rem !important;
+}
